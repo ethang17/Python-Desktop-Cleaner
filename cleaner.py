@@ -63,5 +63,5 @@ if __name__ == "__main__":
     print(saveDir)
     os.chdir(desktopDir)
     for file in os.listdir():
-        #sort(file, saveDir)
-        pass
+        sort(file, saveDir)
+
