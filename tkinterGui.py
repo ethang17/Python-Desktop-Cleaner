@@ -1,6 +1,19 @@
 import tkinter as TK
 from tkinter import filedialog
 from PIL import ImageTk,Image
+from cleanGUI import *
+
+def browseDesktop():
+    desktopPath = filedialog.askdirectory()
+    desktop.delete(0,'end')
+    desktop.insert(0, desktopPath)
+
+def browseDestination():
+    destinationPath = filedialog.askdirectory()
+    destination.delete(0,'end')
+    destination.insert(0, destinationPath)
+
+
 
 root = TK.Tk()
 root.geometry("500x500")
@@ -30,15 +43,28 @@ desktop.insert(0,"Desktop Path")
 desktop.grid(row=0, column=0, padx=20, pady=20)
 desktop.configure(borderwidth=0)
 
-load = Image.open("Folder.png")
-load= load.resize((25, 20))
-render = ImageTk.PhotoImage(load)
-
-desktopBrowse = TK.Button(body,image=render, bg="#DDDDDD")
+load2 = Image.open("Folder.png")
+load2= load2.resize((15, 15))
+render2 = ImageTk.PhotoImage(load2)
+desktopBrowse = TK.Button(body,image=render2, bg="#DDDDDD", command=browseDesktop)
 desktopBrowse.grid(row=0, column=1)
+
+load3 = Image.open("Folder.png")
+load3= load3.resize((15, 15))
+render3 = ImageTk.PhotoImage(load3)
+saveBrowse = TK.Button(body,image=render3, bg="#DDDDDD", command=browseDestination)
+saveBrowse.grid(row=1, column=1)
+
 
 destination = TK.Entry(body, font= ("Arial", "10"), bg="#FFFFFF", width= 50, fg = "#AAAAAA")
 destination.insert(0,"Destination Path")
 destination.grid(row=1, column=0, padx=20, pady=20)
+
+desktopPath = desktop.get()
+destinationPath = desktop.get()
+
+cleanButton = TK.Button(body, width=40, height=10, text="Clean Up", command=cleanUpGUI(desktopPath, destinationPath))
+cleanButton.grid(row=2, column=0)
+
 
 root.mainloop()
