@@ -1,22 +1,20 @@
 import tkinter as TK
 from tkinter import filedialog
 from PIL import ImageTk,Image
-from cleanGUI import *
-desktopPath=""
-destinationPath=""
+import cleanGUI as Clean
+
 
 def browseDesktop():
-    desktopPath = filedialog.askdirectory()
+    desktopP = filedialog.askdirectory()
     desktop.delete(0,'end')
-    desktop.insert(0, desktopPath)
-    desktopPath = desktop.get()
-#not sure if this is updating global variable or not
+    desktop.insert(0, desktopP)
+    Clean.desktopPathGlob = desktopP
 
 def browseDestination():
-    destinationPath = filedialog.askdirectory()
+    destinationP = filedialog.askdirectory()
     destination.delete(0,'end')
-    destination.insert(0, destinationPath)
-    destinationPath = destination.get()
+    destination.insert(0, destinationP)
+    Clean.destinationPathGlob = destinationP
 
 
 
@@ -67,7 +65,7 @@ destination.grid(row=1, column=0, padx=20, pady=20)
 
 
 #need to add funciton from other file as command=
-cleanButton = TK.Button(body, width=40, height=10, text=desktopPath)
+cleanButton = TK.Button(body, width=40, height=10, command = Clean.test, text="CLEAN")
 cleanButton.grid(row=2, column=0)
 
 

@@ -37,3 +37,7 @@ def cleanUpGUI(desktopPath, destinationPath):
     os.chdir(desktopPathGlob)
     for file in os.listdir():
         sort(file, saveDir)
+
+def test():
+    print("Desktop: " +desktopPathGlob)
+    print("Destiantino: "+destinationPathGlob)
