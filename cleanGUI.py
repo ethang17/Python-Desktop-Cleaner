@@ -6,8 +6,6 @@ destinationPathGlob=""
 
 def createDir():
     baseFolderName = "DesktopCleanup--" + str(date.today())
-    print(destinationPathGlob)
-
     os.chdir(destinationPathGlob)
     os.mkdir(baseFolderName)
     os.chdir("./"+baseFolderName)
@@ -28,11 +26,7 @@ def sort(file, saveDir):
 
 
 def cleanUpGUI():
-
-    print(destinationPathGlob)
-
     saveDir = createDir()
-    print(saveDir)
     os.chdir(desktopPathGlob)
     for file in os.listdir():
         sort(file, saveDir)
