@@ -23,6 +23,10 @@ root.geometry("500x400")
 root.title("Desktop Cleanup")
 root.resizable(False, False)
 
+ico = Image.open('DesktopIcon.png')
+photo = ImageTk.PhotoImage(ico)
+root.wm_iconphoto(False, photo)
+
 header = TK.Frame(root, width=500, height=75)
 header.pack()
 
