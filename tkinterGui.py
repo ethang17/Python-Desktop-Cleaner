@@ -65,7 +65,7 @@ destination.grid(row=1, column=0, padx=20, pady=20)
 
 
 #need to add funciton from other file as command=
-cleanButton = TK.Button(body, width=40, height=10, command = Clean.test, text="CLEAN")
+cleanButton = TK.Button(body, width=40, height=10, command = Clean.cleanUpGUI, text="CLEAN")
 cleanButton.grid(row=2, column=0)
 
 

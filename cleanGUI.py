@@ -7,16 +7,16 @@ destinationPathGlob=""
 def createDir():
     baseFolderName = "DesktopCleanup--" + str(date.today())
     print(destinationPathGlob)
-    '''
+
     os.chdir(destinationPathGlob)
     os.mkdir(baseFolderName)
-    os.chdir(".\\"+baseFolderName)
+    os.chdir("./"+baseFolderName)
     for fileType in typesList:
         typeFolderName = fileType.strip(".")
         os.mkdir(typeFolderName)
     saveDir = os.getcwd()
     return(saveDir)
-    '''
+
 
 #Put file in correct folder
 def sort(file, saveDir):
@@ -27,9 +27,8 @@ def sort(file, saveDir):
             os.rename(desktopPathGlob+"\\"+file,saveDir+"\\"+extension.strip(".")+"\\"+file)
 
 
-def cleanUpGUI(desktopPath, destinationPath):
-    desktopPathGlob=desktopPath
-    destinationPathGlob=destinationPath
+def cleanUpGUI():
+
     print(destinationPathGlob)
 
     saveDir = createDir()
